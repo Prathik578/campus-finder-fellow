@@ -4,13 +4,14 @@ import { CATEGORIES, fileToDataUrl, itemInputSchema, todayISO, type ItemInput } 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-type Errors = Partial<Record<keyof ItemInput, string>>;
+type Errors = { [K in keyof ItemInput]?: string | undefined };
+type FormState = { title: string; description: string; category: string; location: string; dateOccurred: string; image: string | null; type: string; contactInstructions: string };
 const field = "w-full rounded-md border bg-card px-3 py-2.5 text-sm shadow-xs focus:outline-none focus:ring-2 focus:ring-ring aria-[invalid=true]:border-destructive";
 
 export function ItemForm({
   initial, submitLabel, onSubmit,
 }: { initial: Partial<ItemInput>; submitLabel: string; onSubmit: (v: ItemInput) => void | Promise<void> }) {
-  const [v, setV] = useState<Record<string, string | null>>({
+  const [v, setV] = useState<FormState>({
     title: "", description: "", category: "", location: "", dateOccurred: todayISO(), image: null, type: "lost", contactInstructions: "",
     ...initial,
   });
