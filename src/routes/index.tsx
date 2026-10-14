@@ -21,7 +21,6 @@ export const Route = createFileRoute("/")({
 function Home() {
   const items = useItems();
   const count = (s: string) => (items ? items.filter((i) => i.status === s).length : "–");
-  const active = items?.filter((i) => i.status !== "returned") ?? null;
 
   return (
     <PageShell>
@@ -59,10 +58,10 @@ function Home() {
         <div className="mb-4 flex items-end justify-between gap-4">
           <div>
             <h2 className="text-2xl font-bold">Recently reported</h2>
-            <p className="text-sm text-muted-foreground">Active lost and found items. Returned items move to <Link to="/history" className="font-medium text-found underline-offset-2 hover:underline">History</Link>.</p>
+            <p className="text-sm text-muted-foreground">Everything reported, newest first. Returned items are also kept in <Link to="/history" className="font-medium text-found underline-offset-2 hover:underline">History</Link>.</p>
           </div>
         </div>
-        <ItemBrowser items={active} />
+        <ItemBrowser items={items} />
       </section>
 
       <section className="mt-16 rounded-2xl bg-primary p-6 text-primary-foreground sm:p-10">
