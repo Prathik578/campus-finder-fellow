@@ -145,7 +145,7 @@ export function updateItem(id: string, patch: Partial<Omit<Item, "id" | "created
   const items = loadItems();
   const idx = items.findIndex((i) => i.id === id);
   if (idx < 0) throw new Error("Item not found");
-  const prev = items[idx];
+  const prev = items[idx]!;
   const next: Item = { ...prev, ...patch, updatedAt: new Date().toISOString() };
   // Editing the type of an active item keeps status in sync; returned stays returned.
   if (patch.type && prev.status !== "returned" && !patch.status) next.status = patch.type;

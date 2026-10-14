@@ -6,7 +6,7 @@ import { DemoNotice, PageShell } from "@/components/lf/ui";
 import { ItemForm } from "@/components/lf/ItemForm";
 
 export const Route = createFileRoute("/report")({
-  validateSearch: (s: Record<string, unknown>): { type: "lost" | "found" } => ({ type: s.type === "found" ? "found" : "lost" }),
+  validateSearch: (s: Record<string, unknown>): { type: "lost" | "found" } => ({ type: s["type"] === "found" ? "found" : "lost" }),
   head: () => ({
     meta: [
       { title: "Report an item — Campus Lost & Found" },
