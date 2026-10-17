@@ -2,7 +2,7 @@
 
 # Build Campus Lost and Found — Project 4/50
 
-Act as a senior product designer and full-stack engineer. Build a complete, polished, responsive web application called **Campus Lost & Found**, designed for students to report and recover lost belongings on campus.
+**Campus Lost & Found**, designed for students to report and recover lost belongings on campus.
 
 The application must be functional, visually premium, and easy to use on mobile devices. Do not create a static mockup.
 
